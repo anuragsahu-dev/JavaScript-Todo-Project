@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FocusFlow — Premium To-Do</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+
+    <header class="app-header">
+      <div class="title-wrap">
+        <h1 class="app-title">FocusFlow</h1>
+        <p class="app-sub">Smart & calm task manager</p>
+      </div>
+
+      <div class="controls">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <section class="input-area">
+      <div class="input-card">
+        <input id="todo-input" type="text" placeholder="What will you focus on?" aria-label="New task" />
+        <button id="add-task-btn" class="primary-btn">Add</button>
+      </div>
+    </section>
+
+    <section class="list-area">
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+      <div class="list-empty" id="list-empty">No tasks yet — add something ✨</div>
+    </section>
+
+    <footer class="app-footer">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+
+      <div class="meta">
+        <span id="remaining-count">0</span> tasks remaining
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
