@@ -89,21 +89,29 @@ body{
   border-radius:12px;
   background:var(--glass);
   border:1px solid rgba(255,255,255,0.03);
+  width:100%;
 }
+
 #todo-input{
   flex:1;
+  min-width:0;
   background:transparent;
   border:0;
   outline:0;
   color:var(--text);
   font-size:16px;
+  padding:10px 6px;
 }
+
+/* FIXED Add button for mobile */
 .primary-btn{
   background:var(--primary);
   color:white;
-  padding:10px 14px;
+  padding:10px 16px;
   border:0;
   border-radius:10px;
+  white-space:nowrap;        /* prevents shrinking of text */
+  flex-shrink:0;             /* button never gets squeezed */
   cursor:pointer;
   transition:all var(--transition);
 }
@@ -133,30 +141,31 @@ body{
   animation:fadeIn .3s ease;
 }
 
-/* Left Section */
 .todo-left{
   display:flex;
   gap:12px;
   align-items:flex-start;
   flex:1;
 }
+
 .check-wrap{
   width:32px;
   display:flex;
   justify-content:center;
   align-items:flex-start;
 }
+
 .check{
   transform:scale(1.15);
   margin-top:3px;
 }
 
-/* Right Buttons */
 .todo-actions{
   display:flex;
   align-items:center;
   gap:10px;
 }
+
 .action-btn{
   padding:9px 12px;
   border-radius:10px;
@@ -165,10 +174,10 @@ body{
   font-weight:600;
   cursor:pointer;
 }
+
 .edit-btn{background:#00a3ff}
 .delete-btn{background:var(--danger)}
 
-/* Completed */
 .todo-item.completed{
   background:linear-gradient(90deg, rgba(31,182,109,0.14), rgba(15,130,90,0.06));
   border-color:rgba(31,182,109,0.18);
@@ -178,7 +187,6 @@ body{
   color:var(--muted);
 }
 
-/* Animations */
 @keyframes fadeIn{
   from{opacity:0; transform:translateY(6px)}
   to{opacity:1; transform:translateY(0)}
@@ -206,7 +214,31 @@ body{
   border-color:transparent;
 }
 
+/* 📱 Mobile Responsiveness Fix */
 @media(max-width:480px){
-  .app{padding:18px}
-  .action-btn{padding:7px 10px;font-size:13px}
+
+  .app{
+    padding:16px;
+  }
+
+  /* Stack input and button on very small screens */
+  .input-card{
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+  }
+
+  #todo-input{
+    width:100%;
+  }
+
+  .primary-btn{
+    width:100%;        /* FULL WIDTH BUTTON ON MOBILE */
+    font-size:16px;
+  }
+
+  .action-btn{
+    padding:7px 10px;
+    font-size:13px;
+  }
 }
